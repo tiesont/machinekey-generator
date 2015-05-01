@@ -1,0 +1,87 @@
+﻿@model MachineKeyGenerator.Web.Models.GeneratedKeyModel
+
+@{
+    ViewBag.Title = AppSettings.Name;
+}
+
+<div class="container">
+    <div class="marque">
+        <p class="lead">
+            This tool allows you to generate random keys for validation and encryption/decryption of the ViewState in your
+            ASP.NET application.
+        </p>
+        <p>
+            The <code>&lt;machinekey&gt;</code> element is also used by the default Membership provider to hash/encrypt passwords,
+            and is required when deploying your application to a web farm.
+        </p>
+        <p>
+            The tool creates a <b>256-bit decryption key</b> and a <b>512-bit validation key</b>, with Rijndael (specifically, AES)
+            as the data validation algorithm. Once the keys are generated, they are converted into a string of hexadecimal characters.
+        </p>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <button class="btn btn-block btn-lg btn-primary">Generate keys</button>
+            }
+        </div>
+    </div>
+    <hr />
+    @if (Model != null && !string.IsNullOrWhiteSpace(Model.MachineKeyTemplate))
+    {
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="alert alert-info text-center">
+                        <b>Thank you!</b> Here are your generated keys:
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-3">
+                    <label>Validation key:</label>
+                </div>
+                <div class="col-xs-9">
+                    <textarea>@Model.ValidationKey</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-3">
+                    <label>Decryption key:</label>
+                </div>
+                <div class="col-xs-9">
+                    <textarea>@Model.DecryptionKey</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label>
+                        Copy the text below into the <code>&lt;system.web&gt;</code> section of your <code>web.config</code>:
+                    </label>
+                </div>
+                <pre class="prettyprint linenums">@Html.Raw(Model.MachineKeyTemplate)</pre>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="alert alert-info text-center">
+                        Your generated keys will be displayed here&hellip;
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

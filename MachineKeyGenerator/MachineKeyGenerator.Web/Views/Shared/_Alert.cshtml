@@ -1,0 +1,19 @@
+﻿<div class="container">
+    @if (TempData.ContainsKey(Alert.Attention))
+    {
+        <div class="alert alert-danger alert-block">
+            <a class="close" data-dismiss="alert" href="#"><i class="fa fa-fw fa-times"></i></a>
+            @Html.Raw(TempData[Alert.Attention])
+        </div>
+    }
+    @foreach (string key in Alert.All.Except(new[] { Alert.Attention }))
+    {
+        if (TempData.ContainsKey(key))
+        {
+            <div class="alert @key">
+                <button type="button" class="close" data-dismiss="alert"><i class="fa fa-fw fa-times"></i></button>
+                @Html.Raw(TempData[key])
+            </div>
+        }
+    }
+</div>

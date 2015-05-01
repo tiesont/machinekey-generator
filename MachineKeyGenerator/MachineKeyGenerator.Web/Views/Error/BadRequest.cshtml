@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Bad Request";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="text-danger">
+                <i class="fa fa-frown-o"></i>
+                @ViewBag.Title
+            </h2>
+            <hr />
+            <p class="text-center">
+                <img src="~/content/images/sheep.png" />
+            </p>
+            <p>
+                There appears to be a problem with the web address (URL). This error message often happens because
+                the website address is typed incorrectly. Make sure the address is correct and try again. If you
+                received this error from a link within this site, please use the
+                @Html.ActionLink("contact form", "contact", "home") and let me know.
+            </p>
+            <p>
+                <b>Thank you for your patience.</b> <i class="fa fa-smile-o"></i>
+            </p>
+        </div>
+    </div>
+</div>

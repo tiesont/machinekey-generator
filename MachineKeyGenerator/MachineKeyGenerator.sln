@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineKeyGenerator.Web", "MachineKeyGenerator.Web\MachineKeyGenerator.Web.csproj", "{ECDCB0C5-3421-46D5-BA07-D14594F20DA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Akismet", "Akismet\Akismet.csproj", "{1167ACEC-90EC-475D-8A7D-336D6B9427AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECDCB0C5-3421-46D5-BA07-D14594F20DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDCB0C5-3421-46D5-BA07-D14594F20DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDCB0C5-3421-46D5-BA07-D14594F20DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDCB0C5-3421-46D5-BA07-D14594F20DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1167ACEC-90EC-475D-8A7D-336D6B9427AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1167ACEC-90EC-475D-8A7D-336D6B9427AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1167ACEC-90EC-475D-8A7D-336D6B9427AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1167ACEC-90EC-475D-8A7D-336D6B9427AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

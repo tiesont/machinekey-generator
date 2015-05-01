@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Not Found";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="text-danger">
+                <i class="fa fa-frown-o"></i>
+                @ViewBag.Title
+            </h2>
+            <hr />
+            <h4>Well then. I can't seem to locate the page you requested. That's a shame...</h4>
+            <p>
+                How about a nice kitteh instead?
+            </p>
+            <p class="text-center">
+                <img alt="" src="~/content/images/kitteh.jpg" class="img-responsive" />
+            </p>
+            <hr />
+            <div class="text-sm text-muted">
+                <p>
+                    Error code 404 indicates that a HTTP request was made for a resource that does not
+                    exist. It may have been moved, deleted, or never existed (in the case of spelling
+                    errors).
+                </p>
+                <p>
+                    There is also the possibility that it was shanghaied by Underpants Gnomes...
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

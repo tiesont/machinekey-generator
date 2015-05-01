@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        @AppSettings.Title
+        @if (ViewBag.Title != null)
+        {
+            @: | @HttpUtility.HtmlDecode(ViewBag.Title)
+        }
+    </title>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    @Styles.Render("~/content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="fa fa-navicon"></span>
+                </button>
+                <a class="navbar-brand" href="~/">
+                    <b>
+                        <i class="fa fa-key"></i>
+                        @AppSettings.Title
+                    </b> | @AppSettings.Name
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="~/">Home</a>
+                    </li>
+                    <li>
+                        <a href="~/contact">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/tiesont/machinekey-generator">
+                            <i class="fa fa-github"></i>
+                            Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-content">
+        @Html.Partial("_Alert")
+
+        @RenderBody()
+
+        <footer id="footer">
+            <div class="container">
+                <hr />
+                <div class="row">
+                    <div class="col-xs-4">
+                        &copy; @DateTime.Now.Year
+                        <a href="@(AppSettings.CopyrightOwnerUrl)">@(AppSettings.CopyrightOwner)</a>
+                    </div>
+                    <nav class="col-xs-8 text-right">
+                        <ul class="footer-nav">
+                            <li>
+                                <a href="~/termsofuse">Terms of Use</a>
+                            </li>
+                            <li>
+                                <a href="~/privacy">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="~/license">License: MIT</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval", "~/bundles/bootstrap", "~/bundles/plugins")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

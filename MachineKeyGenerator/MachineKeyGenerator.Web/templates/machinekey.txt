@@ -1,0 +1,5 @@
+﻿&lt;machinekey compatibilitymode="Framework45"
+            validation="HMACSHA256"
+            validationkey="{0}"
+            decryption="AES"
+            decryptionkey="{1}" /&gt;
