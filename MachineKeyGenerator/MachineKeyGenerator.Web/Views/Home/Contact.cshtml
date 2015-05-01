@@ -1,0 +1,56 @@
+﻿@model MachineKeyGenerator.Web.Models.ContactFormModel
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Contact</h2>
+            <p class="lead">
+                Use this page to get in touch with me via the included form.
+            </p>
+            <hr />
+            <p class="text-danger">
+                <i class="fa fa-fw fa-info-circle"></i>
+                Please note that all fields are required.
+            </p>
+            @using (Html.BeginForm("contact", "home", FormMethod.Post, new { id = "contact-form", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name)
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "First and last name preferred..." })
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email)
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "If you want a real response, I need a real email..." })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Message)
+                    <div class="controls">
+                        @Html.TextAreaFor(model => model.Message, new { @class = "texteditor medium form-control", placeholder = "Please note that I've set a 300 character limit here; if you need more than that, please email me directly." })
+                        @Html.ValidationMessageFor(model => model.Message)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="contact-btn" class="btn btn-primary">
+                        Send
+                    </button>&nbsp;
+                    <a href="~/" id="cancel-btn" class="text-danger">
+                        <i class="fa fa-fw fa-times"></i>
+                        Cancel
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
