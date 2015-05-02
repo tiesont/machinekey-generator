@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineKeyGenerator.Web", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Akismet", "Akismet\Akismet.csproj", "{1167ACEC-90EC-475D-8A7D-336D6B9427AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineKeyGenerator.Tests", "MachineKeyGenerator.Tests\MachineKeyGenerator.Tests.csproj", "{FFF94375-9DB3-4601-A15C-938B67239435}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1167ACEC-90EC-475D-8A7D-336D6B9427AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1167ACEC-90EC-475D-8A7D-336D6B9427AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1167ACEC-90EC-475D-8A7D-336D6B9427AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF94375-9DB3-4601-A15C-938B67239435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF94375-9DB3-4601-A15C-938B67239435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF94375-9DB3-4601-A15C-938B67239435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF94375-9DB3-4601-A15C-938B67239435}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
