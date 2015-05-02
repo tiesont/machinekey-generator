@@ -4,6 +4,32 @@
     ViewBag.Title = AppSettings.Name;
 }
 
+@section scripts
+{
+    <script type="text/template" id="disclaimer-template">
+        <h4>Keys are not retained in any format.</h4>
+        <p>
+            You push the button, you get a new set of keys. There is no tracking, storing, or any
+            other sort of shenanigans afoot with this tool, nor will there ever be.
+        </p>
+        <p>
+            The code you find <a href="https://github.com/tiesont/machinekey-generator">on Github</a> is
+            the same code powering this site, minus a few config options such as the Akismet key, or the SMTP
+            settings for the Contact page.
+        </p>
+    </script>
+    <script>
+        $(function () {
+            $('#disclaimer').on('click', function (e) {
+                e.preventDefault();
+                bootbox.alert({
+                    message: $('#disclaimer-template').html()
+                });
+            });
+        });
+    </script>
+}
+
 <div class="container">
     <div class="marque">
         <p class="lead">
@@ -27,6 +53,9 @@
                 @Html.AntiForgeryToken()
                 <button class="btn btn-block btn-lg btn-primary">Generate keys</button>
             }
+            <a href="#" id="disclaimer" class="btn btn-link btn-block">
+                In case you're wondering...
+            </a>
         </div>
     </div>
     <hr />
