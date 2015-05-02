@@ -81,7 +81,11 @@ namespace MachineKeyGenerator.Web.Controllers
                                 string name = HtmlUtility.WhitewashMarkup(model.Name);
                                 string email = HtmlUtility.WhitewashMarkup(model.Email);
                                 string message = HtmlUtility.SanitizeReduceMarkup(model.Message);
-                                await SendEmailAsync("ContactNotification", AppSettings.ContactEmail, "MKG Contact Notification", message, message);
+
+                                string mailHtml = string.Format("<h4>Name:</h4>\n<p>{0}</p>\n<h4>Email:</h4>\n<p>{1}</p>\n<h4>Message:</h4>\n<div>{2}</div>", name, email, message);
+                                string mailplaintext = string.Format("Name: {0}\nEmail: {1}\nMessage: {2}", name, email, message);
+
+                                await SendEmailAsync("ContactNotification", AppSettings.ContactEmail, "MKG Contact Notification", mailHtml, mailplaintext);
                             }
                         }
                         catch (Exception ex)
