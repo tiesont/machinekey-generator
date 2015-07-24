@@ -14,6 +14,7 @@ namespace MachineKeyGenerator.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("{folder}/{*pathInfo}", new { folder = "content" });
             routes.IgnoreRoute("{folder}/{*pathInfo}", new { folder = "scripts" });
+            routes.IgnoreRoute("{folder}/{*pathInfo}", new { folder = "fonts" });
             routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 
             routes.MapRoute(

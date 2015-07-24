@@ -22,12 +22,7 @@ namespace MachineKeyGenerator.Web
             private set;
         }
 
-        public BaseController(ILogger logger)
-        {
-            Logger = logger;
-        }
-
-        public BaseController(ILogger logger, IEmailService mailer)
+        public BaseController(ILogger logger, IEmailService mailer = null)
         {
             Logger = logger;
             Mailer = mailer;

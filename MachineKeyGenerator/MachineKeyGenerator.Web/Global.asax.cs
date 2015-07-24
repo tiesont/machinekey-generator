@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-
-using Castle.Windsor;
-using Castle.Windsor.Installer;
+//
+using SimpleInjector;
+using SimpleInjector.Integration.Web.Mvc;
 
 namespace MachineKeyGenerator.Web
 {
-    public class MvcApplication : System.Web.HttpApplication, Castle.Windsor.IContainerAccessor
-    {
-        private static IWindsorContainer __container;
-
-        public IWindsorContainer Container
-        {
-            get { return __container; }
-        }
-
+    public class MvcApplication : System.Web.HttpApplication
+    {   
         private void BootstrapContainer()
         {
-            __container = new WindsorContainer().Install(FromAssembly.This());
+            var container = new Container();
 
-            System.Web.Mvc.DependencyResolver.SetResolver(new WindsorDependencyResolver(__container));
-            ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(__container.Kernel));
+            container.RegisterPackages();
+
+            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+
+            container.RegisterMvcIntegratedFilterProvider();
+
+            container.Verify();
+
+            System.Web.Mvc.DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
         }
 
         protected void Application_Start()
@@ -115,7 +116,6 @@ namespace MachineKeyGenerator.Web
 
         protected void Application_End(object sender, EventArgs e)
         {
-            __container.Dispose();
         }
 
 

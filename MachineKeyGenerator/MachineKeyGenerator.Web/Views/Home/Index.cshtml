@@ -9,8 +9,11 @@
     <script type="text/template" id="disclaimer-template">
         <h4>Keys are not retained in any format.</h4>
         <p>
-            You push the button, you get a new set of keys. There is no tracking, storing, or any
+            You push the button, you get a new set of keys. There is no key tracking, storing, or any
             other sort of shenanigans afoot with this tool, nor will there ever be.
+        </p>
+        <p>
+            Google Analytics is used to track page views. It does not record POST requests, which is how keys are generated.
         </p>
         <p>
             The code you find <a href="https://github.com/tiesont/machinekey-generator">on Github</a> is
@@ -97,7 +100,7 @@
                         Copy the text below into the <code>&lt;system.web&gt;</code> section of your <code>web.config</code>:
                     </label>
                 </div>
-                <pre class="prettyprint linenums">@Html.Raw(Model.MachineKeyTemplate)</pre>
+                <pre class="prettyprint">@Html.Raw(Model.MachineKeyTemplate)</pre>
             </div>
         </div>
     }

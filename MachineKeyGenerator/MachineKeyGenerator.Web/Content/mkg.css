@@ -11,6 +11,12 @@
 }
 
 
+.navbar-brand b
+{
+    color: #b6ff00;
+}
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content
 {
