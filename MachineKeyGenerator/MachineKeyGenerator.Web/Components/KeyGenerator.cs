@@ -15,7 +15,7 @@ namespace MachineKeyGenerator.Web
             var randomNumberGenerator = new RNGCryptoServiceProvider();
             randomNumberGenerator.GetBytes(buffer);
 
-            return ToHexString(buffer, true);
+            return ToHexString(buffer, useUpperCase);
         }
 
         private static string ToHexString(byte[] bytes, bool useUpperCase = false)
